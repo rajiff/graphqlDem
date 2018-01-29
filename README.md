@@ -1,2 +1,19 @@
-What about MVC, Authentication, Role Based Access to APIs & Data
+## Query in Graphiql
+{
+    products
+}
 
+## Mutation in Graphiql
+mutation ($in: ProductInput!) {
+  addNewProduct(product: $in) {
+    name
+    code
+    vendor
+    sku
+    price
+    status
+    quantity
+    addedOn
+    addedBy
+  }
+}

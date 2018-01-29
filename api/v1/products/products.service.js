@@ -46,7 +46,19 @@ const getProducts = function(done) {
 }
 
 const findProductByCode = function(productCode, done) {
-  // @TODO
+  let query = {code: productCode};
+  let fieldOptions = null;
+
+  ProductModel
+    .findOne(query)
+    .exec((err, product) => {
+      if (err) {
+        console.error('Error in finding products of specified code, ERROR::', err, ' queries for ', query);
+        done(err);
+        return;
+      }
+      done(null, product);
+    });
 }
 
 const submitNewReview = function(productCode, reviewObj, done) {

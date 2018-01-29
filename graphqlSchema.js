@@ -73,7 +73,7 @@ const schema = new GraphQLSchema({
         }
       },
       submitReview: {
-        type: ProductReviewType,
+        type: new GraphQLList(ProductReviewType),
         args: {
           code: { type: new GraphQLNonNull(GraphQLString) },
           review: { type: new GraphQLNonNull(ProductReviewInputType) }
@@ -84,7 +84,7 @@ const schema = new GraphQLSchema({
               if (err) {
                 reject(err);
               }
-              resolve(result);
+              resolve(result.reviews);
             })
           })
         }
