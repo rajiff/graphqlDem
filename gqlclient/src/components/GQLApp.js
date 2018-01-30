@@ -3,8 +3,8 @@ import './GQLApp.css';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import ProductList from "./ProductList";
-import ProductSearch from "./ProductSearch";
+// import ProductList from "./ProductList";
+// import ProductSearch from "./ProductSearch";
 
 class GQLApp extends Component {
 	constructor(props) {
@@ -36,16 +36,14 @@ class GQLApp extends Component {
                     Code: {p.code} <br />
                     Vendor: {p.vendor} <br />
                     Price: {p.price} <br />
+                    Quantity: {p.quantity} <br />
+                    AddedOn: {p.addedOn} <br />
                   </p>
                 </div>
               )
             }) : "Loading..!"
           }
         </div>
-        {
-          /*<ProductSearch />
-          <ProductList />*/
-        }
       </div>
     );
   }
@@ -63,4 +61,6 @@ const FETCH_ALL_PRODUCTS = gql`query productsQuery {
     addedBy }
 }`;
 
+// HOC
 export default graphql(FETCH_ALL_PRODUCTS, { name: 'productsQuery'})(GQLApp);
+

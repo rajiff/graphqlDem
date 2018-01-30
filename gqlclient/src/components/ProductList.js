@@ -48,6 +48,11 @@ const FETCH_ALL_PRODUCTS = gql`query productListQuery {
     code
     vendor
     price
+    reviews {
+      rank
+      reviewer
+      comments
+    }
   }
 }`;
 

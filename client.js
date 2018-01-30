@@ -1,8 +1,8 @@
 const { request } = require('graphql-request')
 
 function query() {
-  let query = `{ products { name, vendor, price } }`;
-  // let query = `{ product(code: "iphone") { name, vendor, price } } `;
+  // let query = `{ products { name, vendor, price } }`;
+  let query = `{ product(code: "nokia") { name, vendor, quantity, price } } `;
 
   request('http://localhost:3000', query).then(data => console.log(data));
 }

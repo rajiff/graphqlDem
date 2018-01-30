@@ -14,11 +14,13 @@ export default class AppRoutes extends React.Component {
 	          <span style={{margin: "10px"}}><Link to="/list">Featured Products</Link></span>
 	          <span style={{margin: "10px"}}><Link to="/search">Search</Link></span>
 	        </div>
+
 					<Switch>
 		        <Route exact path="/" component={GQLApp} />
 		        <Route path="/list" component={ProductList} />
 		        <Route path="/search" component={ProductSearch} />
 		      </Switch>
+
 		     </div>
       </HashRouter>
 		)

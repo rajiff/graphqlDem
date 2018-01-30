@@ -21,8 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Avoid frequent (spam) favicon request by sending no content status
-app.get('/favicon.ico', function(req, res) {
+app.use('/favicon.ico', function(req, res, next) {
     res.status(204);
+    next();
 });
 
 // Mount the APIs specific to version
