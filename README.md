@@ -17,3 +17,6 @@ mutation ($in: ProductInput!) {
     addedBy
   }
 }
+
+curl http://localhost:3000 -H 'content-type: application/json' -d '{"query":"{ products { name vendor } }"}'
+curl http://localhost:3000 -H 'content-type: application/json' -d '{"query":"{ product (code: \"iphone8\") { name vendor price quantity } }"}'

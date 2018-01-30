@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 const graphqlHTTP = require('express-graphql');
 const graphqlSchema = require('./graphqlSchema');
@@ -12,6 +13,8 @@ let app = express();
 // Configure morgan to log your requests, with a standard date & time format
 morgan.token('time', (req, res) => new Date().toISOString());
 app.use(morgan('[:time] :remote-addr :method :url :status :res[content-length] :response-time ms'));
+
+// app.use(compression());
 
 // Setup bodyParsing middleware
 app.use(bodyParser.json());
